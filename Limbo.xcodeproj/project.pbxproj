@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3368FB091D36FD290047DCAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB081D36FD290047DCAE /* AppDelegate.swift */; };
+		3368FB0B1D36FD290047DCAE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB0A1D36FD290047DCAE /* GameScene.sks */; };
+		3368FB0D1D36FD290047DCAE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB0C1D36FD290047DCAE /* GameScene.swift */; };
+		3368FB0F1D36FD290047DCAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB0E1D36FD290047DCAE /* GameViewController.swift */; };
+		3368FB121D36FD290047DCAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB101D36FD290047DCAE /* Main.storyboard */; };
+		3368FB141D36FD290047DCAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB131D36FD290047DCAE /* Assets.xcassets */; };
+		3368FB171D36FD290047DCAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB151D36FD290047DCAE /* LaunchScreen.storyboard */; };
+		3368FB221D36FD290047DCAE /* LimboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB211D36FD290047DCAE /* LimboTests.swift */; };
+		3368FB2D1D36FD290047DCAE /* LimboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB2C1D36FD290047DCAE /* LimboUITests.swift */; };
+		3368FB3B1D36FE380047DCAE /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB3A1D36FE380047DCAE /* Hero.sks */; };
+		33F560CB1D36FEF000B13162 /* BlackSun.sks in Resources */ = {isa = PBXBuildFile; fileRef = 33F560CA1D36FEF000B13162 /* BlackSun.sks */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3368FB1E1D36FD290047DCAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3368FAFD1D36FD290047DCAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3368FB041D36FD290047DCAE;
+			remoteInfo = Limbo;
+		};
+		3368FB291D36FD290047DCAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3368FAFD1D36FD290047DCAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3368FB041D36FD290047DCAE;
+			remoteInfo = Limbo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3368FB051D36FD290047DCAE /* Limbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3368FB081D36FD290047DCAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3368FB0A1D36FD290047DCAE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		3368FB0C1D36FD290047DCAE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		3368FB0E1D36FD290047DCAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		3368FB111D36FD290047DCAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3368FB131D36FD290047DCAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3368FB161D36FD290047DCAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3368FB181D36FD290047DCAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3368FB1D1D36FD290047DCAE /* LimboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LimboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3368FB211D36FD290047DCAE /* LimboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboTests.swift; sourceTree = "<group>"; };
+		3368FB231D36FD290047DCAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3368FB281D36FD290047DCAE /* LimboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LimboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3368FB2C1D36FD290047DCAE /* LimboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboUITests.swift; sourceTree = "<group>"; };
+		3368FB2E1D36FD290047DCAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3368FB3A1D36FE380047DCAE /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hero.sks; sourceTree = "<group>"; };
+		33F560CA1D36FEF000B13162 /* BlackSun.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlackSun.sks; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3368FB021D36FD290047DCAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3368FB1A1D36FD290047DCAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3368FB251D36FD290047DCAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3368FAFC1D36FD290047DCAE = {
+			isa = PBXGroup;
+			children = (
+				3368FB071D36FD290047DCAE /* Limbo */,
+				3368FB201D36FD290047DCAE /* LimboTests */,
+				3368FB2B1D36FD290047DCAE /* LimboUITests */,
+				3368FB061D36FD290047DCAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3368FB061D36FD290047DCAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3368FB051D36FD290047DCAE /* Limbo.app */,
+				3368FB1D1D36FD290047DCAE /* LimboTests.xctest */,
+				3368FB281D36FD290047DCAE /* LimboUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3368FB071D36FD290047DCAE /* Limbo */ = {
+			isa = PBXGroup;
+			children = (
+				3368FB081D36FD290047DCAE /* AppDelegate.swift */,
+				3368FB0A1D36FD290047DCAE /* GameScene.sks */,
+				33F560CA1D36FEF000B13162 /* BlackSun.sks */,
+				3368FB3A1D36FE380047DCAE /* Hero.sks */,
+				3368FB0C1D36FD290047DCAE /* GameScene.swift */,
+				3368FB0E1D36FD290047DCAE /* GameViewController.swift */,
+				3368FB101D36FD290047DCAE /* Main.storyboard */,
+				3368FB131D36FD290047DCAE /* Assets.xcassets */,
+				3368FB151D36FD290047DCAE /* LaunchScreen.storyboard */,
+				3368FB181D36FD290047DCAE /* Info.plist */,
+			);
+			path = Limbo;
+			sourceTree = "<group>";
+		};
+		3368FB201D36FD290047DCAE /* LimboTests */ = {
+			isa = PBXGroup;
+			children = (
+				3368FB211D36FD290047DCAE /* LimboTests.swift */,
+				3368FB231D36FD290047DCAE /* Info.plist */,
+			);
+			path = LimboTests;
+			sourceTree = "<group>";
+		};
+		3368FB2B1D36FD290047DCAE /* LimboUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3368FB2C1D36FD290047DCAE /* LimboUITests.swift */,
+				3368FB2E1D36FD290047DCAE /* Info.plist */,
+			);
+			path = LimboUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3368FB041D36FD290047DCAE /* Limbo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3368FB311D36FD290047DCAE /* Build configuration list for PBXNativeTarget "Limbo" */;
+			buildPhases = (
+				3368FB011D36FD290047DCAE /* Sources */,
+				3368FB021D36FD290047DCAE /* Frameworks */,
+				3368FB031D36FD290047DCAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Limbo;
+			productName = Limbo;
+			productReference = 3368FB051D36FD290047DCAE /* Limbo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3368FB1C1D36FD290047DCAE /* LimboTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3368FB341D36FD290047DCAE /* Build configuration list for PBXNativeTarget "LimboTests" */;
+			buildPhases = (
+				3368FB191D36FD290047DCAE /* Sources */,
+				3368FB1A1D36FD290047DCAE /* Frameworks */,
+				3368FB1B1D36FD290047DCAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3368FB1F1D36FD290047DCAE /* PBXTargetDependency */,
+			);
+			name = LimboTests;
+			productName = LimboTests;
+			productReference = 3368FB1D1D36FD290047DCAE /* LimboTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3368FB271D36FD290047DCAE /* LimboUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3368FB371D36FD290047DCAE /* Build configuration list for PBXNativeTarget "LimboUITests" */;
+			buildPhases = (
+				3368FB241D36FD290047DCAE /* Sources */,
+				3368FB251D36FD290047DCAE /* Frameworks */,
+				3368FB261D36FD290047DCAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3368FB2A1D36FD290047DCAE /* PBXTargetDependency */,
+			);
+			name = LimboUITests;
+			productName = LimboUITests;
+			productReference = 3368FB281D36FD290047DCAE /* LimboUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3368FAFD1D36FD290047DCAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Rahul Bhethanabotla";
+				TargetAttributes = {
+					3368FB041D36FD290047DCAE = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					3368FB1C1D36FD290047DCAE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 3368FB041D36FD290047DCAE;
+					};
+					3368FB271D36FD290047DCAE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 3368FB041D36FD290047DCAE;
+					};
+				};
+			};
+			buildConfigurationList = 3368FB001D36FD290047DCAE /* Build configuration list for PBXProject "Limbo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3368FAFC1D36FD290047DCAE;
+			productRefGroup = 3368FB061D36FD290047DCAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3368FB041D36FD290047DCAE /* Limbo */,
+				3368FB1C1D36FD290047DCAE /* LimboTests */,
+				3368FB271D36FD290047DCAE /* LimboUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3368FB031D36FD290047DCAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33F560CB1D36FEF000B13162 /* BlackSun.sks in Resources */,
+				3368FB0B1D36FD290047DCAE /* GameScene.sks in Resources */,
+				3368FB171D36FD290047DCAE /* LaunchScreen.storyboard in Resources */,
+				3368FB141D36FD290047DCAE /* Assets.xcassets in Resources */,
+				3368FB3B1D36FE380047DCAE /* Hero.sks in Resources */,
+				3368FB121D36FD290047DCAE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3368FB1B1D36FD290047DCAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3368FB261D36FD290047DCAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3368FB011D36FD290047DCAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3368FB0D1D36FD290047DCAE /* GameScene.swift in Sources */,
+				3368FB0F1D36FD290047DCAE /* GameViewController.swift in Sources */,
+				3368FB091D36FD290047DCAE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3368FB191D36FD290047DCAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3368FB221D36FD290047DCAE /* LimboTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3368FB241D36FD290047DCAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3368FB2D1D36FD290047DCAE /* LimboUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3368FB1F1D36FD290047DCAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3368FB041D36FD290047DCAE /* Limbo */;
+			targetProxy = 3368FB1E1D36FD290047DCAE /* PBXContainerItemProxy */;
+		};
+		3368FB2A1D36FD290047DCAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3368FB041D36FD290047DCAE /* Limbo */;
+			targetProxy = 3368FB291D36FD290047DCAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3368FB101D36FD290047DCAE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3368FB111D36FD290047DCAE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3368FB151D36FD290047DCAE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3368FB161D36FD290047DCAE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3368FB2F1D36FD290047DCAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3368FB301D36FD290047DCAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3368FB321D36FD290047DCAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Limbo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Limbo.Limbo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3368FB331D36FD290047DCAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Limbo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Limbo.Limbo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3368FB351D36FD290047DCAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = LimboTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Limbo.LimboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Limbo.app/Limbo";
+			};
+			name = Debug;
+		};
+		3368FB361D36FD290047DCAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LimboTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Limbo.LimboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Limbo.app/Limbo";
+			};
+			name = Release;
+		};
+		3368FB381D36FD290047DCAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = LimboUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Limbo.LimboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Limbo;
+			};
+			name = Debug;
+		};
+		3368FB391D36FD290047DCAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LimboUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Limbo.LimboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Limbo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3368FB001D36FD290047DCAE /* Build configuration list for PBXProject "Limbo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3368FB2F1D36FD290047DCAE /* Debug */,
+				3368FB301D36FD290047DCAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3368FB311D36FD290047DCAE /* Build configuration list for PBXNativeTarget "Limbo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3368FB321D36FD290047DCAE /* Debug */,
+				3368FB331D36FD290047DCAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3368FB341D36FD290047DCAE /* Build configuration list for PBXNativeTarget "LimboTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3368FB351D36FD290047DCAE /* Debug */,
+				3368FB361D36FD290047DCAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3368FB371D36FD290047DCAE /* Build configuration list for PBXNativeTarget "LimboUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3368FB381D36FD290047DCAE /* Debug */,
+				3368FB391D36FD290047DCAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3368FAFD1D36FD290047DCAE /* Project object */;
+}
