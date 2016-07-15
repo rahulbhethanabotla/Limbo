@@ -16,7 +16,8 @@
 		3368FB171D36FD290047DCAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB151D36FD290047DCAE /* LaunchScreen.storyboard */; };
 		3368FB221D36FD290047DCAE /* LimboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB211D36FD290047DCAE /* LimboTests.swift */; };
 		3368FB2D1D36FD290047DCAE /* LimboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368FB2C1D36FD290047DCAE /* LimboUITests.swift */; };
-		3368FB3B1D36FE380047DCAE /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3368FB3A1D36FE380047DCAE /* Hero.sks */; };
+		33E14CD11D37F146008BBA8C /* Hero.sks in Resources */ = {isa = PBXBuildFile; fileRef = 33E14CD01D37F146008BBA8C /* Hero.sks */; };
+		33E14CD71D380E9A008BBA8C /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E14CD61D380E9A008BBA8C /* Ring.swift */; };
 		33F560CB1D36FEF000B13162 /* BlackSun.sks in Resources */ = {isa = PBXBuildFile; fileRef = 33F560CA1D36FEF000B13162 /* BlackSun.sks */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +54,8 @@
 		3368FB281D36FD290047DCAE /* LimboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LimboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3368FB2C1D36FD290047DCAE /* LimboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimboUITests.swift; sourceTree = "<group>"; };
 		3368FB2E1D36FD290047DCAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3368FB3A1D36FE380047DCAE /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Hero.sks; sourceTree = "<group>"; };
+		33E14CD01D37F146008BBA8C /* Hero.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Hero.sks; path = ../Hero.sks; sourceTree = "<group>"; };
+		33E14CD61D380E9A008BBA8C /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ring.swift; path = ../Ring.swift; sourceTree = "<group>"; };
 		33F560CA1D36FEF000B13162 /* BlackSun.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlackSun.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,8 +109,9 @@
 			children = (
 				3368FB081D36FD290047DCAE /* AppDelegate.swift */,
 				3368FB0A1D36FD290047DCAE /* GameScene.sks */,
+				33E14CD61D380E9A008BBA8C /* Ring.swift */,
 				33F560CA1D36FEF000B13162 /* BlackSun.sks */,
-				3368FB3A1D36FE380047DCAE /* Hero.sks */,
+				33E14CD01D37F146008BBA8C /* Hero.sks */,
 				3368FB0C1D36FD290047DCAE /* GameScene.swift */,
 				3368FB0E1D36FD290047DCAE /* GameViewController.swift */,
 				3368FB101D36FD290047DCAE /* Main.storyboard */,
@@ -244,8 +247,8 @@
 				33F560CB1D36FEF000B13162 /* BlackSun.sks in Resources */,
 				3368FB0B1D36FD290047DCAE /* GameScene.sks in Resources */,
 				3368FB171D36FD290047DCAE /* LaunchScreen.storyboard in Resources */,
+				33E14CD11D37F146008BBA8C /* Hero.sks in Resources */,
 				3368FB141D36FD290047DCAE /* Assets.xcassets in Resources */,
-				3368FB3B1D36FE380047DCAE /* Hero.sks in Resources */,
 				3368FB121D36FD290047DCAE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3368FB0D1D36FD290047DCAE /* GameScene.swift in Sources */,
+				33E14CD71D380E9A008BBA8C /* Ring.swift in Sources */,
 				3368FB0F1D36FD290047DCAE /* GameViewController.swift in Sources */,
 				3368FB091D36FD290047DCAE /* AppDelegate.swift in Sources */,
 			);
