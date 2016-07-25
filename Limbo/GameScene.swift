@@ -10,11 +10,30 @@ import SpriteKit
 import CoreGraphics
 import UIKit
 
-class GameScene: SKScene {
+
+
+enum GameState {
+    case Active, GameOver
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let pi = M_PI
     
+    var gameState: GameState = .Active
+    
+    var levelNode: SKNode!
+    
+    var gameLevel = 0
+    
+    var goal: SKEmitterNode!
+    
+    
+    var cameraTarget: SKNode?
+    
     var hero: SKSpriteNode!
+    
+    var enemy: [Enemy] = []
     
     var background: SKSpriteNode!
     
@@ -69,15 +88,54 @@ class GameScene: SKScene {
     
     var optionsBar: SKSpriteNode!
     
-    var restartButton: MSButtonNode!
+    var restartButtonOptions: MSButtonNode!
+    
+    var restartButtonGO: MSButtonNode!
     
     var pauseButton: MSButtonNode!
     
     var gamePaused: Bool = false
     
-    var storedVelocity: CGVector!
+    var storedVelocity: CGVector = CGVectorMake(0, 0)
+    
+    var infoButton: MSButtonNode!
+    
+    var infoBar: SKSpriteNode!
+    
+    var isInfoDown: Bool = false
+    
+    var levelDisplay: SKLabelNode!
+    
+    var linearCharges: SKLabelNode!
+    
+    var radialCharges: SKLabelNode!
+    
+    var velocityCharges: SKLabelNode!
+    
+    var gameOverScreen: SKSpriteNode!
+    
+    var fireballCount = 0
+    
+    var backButton: MSButtonNode!
+    
+    var youWonScreen: SKSpriteNode!
+    
     
     override func didMoveToView(view: SKView) {
+        
+        levelNode = self.childNodeWithName("levelNode")
+        
+        physicsWorld.contactDelegate = self
+        
+        /* Load the level */
+        var resourcePath = NSBundle.mainBundle().pathForResource("Level" + "\(gameLevel)", ofType: ".sks")
+        let newLevel = SKReferenceNode (URL: NSURL (fileURLWithPath: resourcePath!))
+        levelNode.addChild(newLevel)
+        //enemy.append(newLevel.childNodeWithName("//enemy") as! Enemy)
+        
+        goal = self.childNodeWithName("//goal") as! SKEmitterNode
+        
+        
         hero = self.childNodeWithName("//hero") as! SKSpriteNode
         
         /* Setup the background image */
@@ -103,7 +161,7 @@ class GameScene: SKScene {
         
         /* Setup the physics button and children buttons */
         
-        physicsTab = self.childNodeWithName("physicsTab") as! MSButtonNode
+        physicsTab = camera!.childNodeWithName("physicsTab") as! MSButtonNode
         physicsBar = physicsTab.childNodeWithName("physicsBar") as! SKSpriteNode
         physicsBar.hidden = false
         physicsTab.selectedHandler = {
@@ -167,25 +225,25 @@ class GameScene: SKScene {
         
         
         
-        moveRightButton = self.childNodeWithName("moveRightButton") as! MSButtonNode
+        moveRightButton = camera!.childNodeWithName("moveRightButton") as! MSButtonNode
         moveRightButton.selectedHandler = {
             if (self.hero.xScale < 0) {
                 self.hero.xScale = -self.hero.xScale
                 self.hero.physicsBody?.velocity = CGVectorMake(0, 0)
             }
-            self.hero.physicsBody?.applyImpulse(CGVectorMake(15, 0))
+            self.hero.physicsBody?.applyImpulse(CGVectorMake(10, 0))
         }
         
-        moveLeftButton = self.childNodeWithName("moveLeftButton") as! MSButtonNode
+        moveLeftButton = camera!.childNodeWithName("moveLeftButton") as! MSButtonNode
         moveLeftButton.selectedHandler = {
             if (self.hero.xScale > 0) {
                 self.hero.xScale = -self.hero.xScale
                 self.hero.physicsBody?.velocity = CGVectorMake(0, 0)
             }
-            self.hero.physicsBody?.applyImpulse(CGVectorMake(-15, 0))
+            self.hero.physicsBody?.applyImpulse(CGVectorMake(-10, 0))
         }
         
-        optionsTab = self.childNodeWithName("optionsTab") as! MSButtonNode
+        optionsTab = camera!.childNodeWithName("optionsTab") as! MSButtonNode
         optionsBar = optionsTab.childNodeWithName("optionsBar") as! SKSpriteNode
         optionsTab.selectedHandler = {
             self.wasOptionsPressed = !self.wasOptionsPressed
@@ -208,13 +266,17 @@ class GameScene: SKScene {
             
         }
         
-        restartButton = optionsBar.childNodeWithName("restartButton") as! MSButtonNode
-        restartButton.selectedHandler = {
+        restartButtonOptions = optionsBar.childNodeWithName("restartButtonOptions") as! MSButtonNode
+        restartButtonOptions.selectedHandler = {
+            self.gameState = .Active
             let skView = self.view as SKView!
             let scene = GameScene(fileNamed: "GameScene") as GameScene!
             scene.scaleMode = .AspectFill
             skView.presentScene(scene)
         }
+        
+        
+       
         
         pauseButton = optionsBar.childNodeWithName("pauseButton") as! MSButtonNode
         pauseButton.selectedHandler = {
@@ -223,19 +285,84 @@ class GameScene: SKScene {
             if (self.gamePaused) {
                 self.hero.paused = !self.hero.paused
                 self.hero.physicsBody?.velocity = self.storedVelocity
+                print(self.enemy[0].children[0])
+                self.physicsWorld.speed = 1
             }
             else {
                 self.hero.paused = !self.hero.paused
-                self.storedVelocity = self.hero.physicsBody?.velocity
+                self.storedVelocity = (self.hero.physicsBody?.velocity)!
                 print(self.storedVelocity)
                 self.hero.physicsBody?.velocity = CGVectorMake(0, 0)
                 print(self.storedVelocity)
                 self.moveRightButton.paused = !self.moveRightButton.paused
                 self.moveLeftButton.paused = !self.moveRightButton.paused
-                
+                self.physicsWorld.speed = 0
             }
             self.gamePaused = !self.gamePaused
+            
         }
+        
+        infoButton = optionsBar.childNodeWithName("infoButton") as! MSButtonNode
+        infoBar = self.childNodeWithName("infoBar") as! SKSpriteNode
+        infoButton.selectedHandler = {
+            let moveDown = SKAction.moveToY(250, duration: 0.6)
+            let moveToX = SKAction.moveToX((self.camera?.position.x)!, duration: 0.6)
+            let seq = SKAction.sequence([moveToX,moveDown])
+            let goUp = SKAction.moveToY(500, duration: 0.6)
+            if (self.isInfoDown) { self.infoBar.runAction(goUp) }
+            else { self.infoBar.runAction(seq) }
+            self.isInfoDown = !self.isInfoDown
+            
+                
+            
+        }
+        
+        
+        levelDisplay = infoBar.childNodeWithName("levelDisplay") as! SKLabelNode
+        linearCharges = infoBar.childNodeWithName("linearCharges") as! SKLabelNode
+        radialCharges = infoBar.childNodeWithName("radialCharges") as! SKLabelNode
+        velocityCharges = infoBar.childNodeWithName("velocityCharges") as! SKLabelNode
+        
+        gameOverScreen = self.childNodeWithName("gameOverScreen") as! SKSpriteNode
+        
+        restartButtonGO = gameOverScreen.childNodeWithName("restartButtonGO") as! MSButtonNode
+        restartButtonGO.selectedHandler = {
+            self.gameState = .Active
+            let skView = self.view as SKView!
+            let scene = GameScene(fileNamed: "GameScene") as GameScene!
+            scene.scaleMode = .AspectFill
+            skView.presentScene(scene)
+        }
+        
+        
+        
+        /* Back button functionality*/
+        backButton = gameOverScreen.childNodeWithName("backButton") as! MSButtonNode
+        backButton.selectedHandler = {
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Load Game scene */
+            let scene = MainScene(fileNamed:"MainScene") as MainScene!
+            
+            /* Ensure correct aspect mode */
+            scene.scaleMode = .AspectFit
+            
+            /* Show debug */
+            skView.showsPhysics = true
+            skView.showsDrawCount = true
+            skView.showsFPS = true
+            
+            /* Start game scene */
+            skView.presentScene(scene)
+        }
+
+        
+        
+        
+        youWonScreen = self.childNodeWithName("youWonScreen") as! SKSpriteNode
+        
+        
     }
     
     
@@ -260,6 +387,8 @@ class GameScene: SKScene {
             if (wasLinearPressed) { createLinearGravityNode(location) }
             
         }
+        
+        //cameraTarget = hero
         
         //
     }
@@ -301,11 +430,30 @@ class GameScene: SKScene {
     }
     
     
-    
+    var lastTime: CFTimeInterval = 0
     
     
     override func update(currentTime: CFTimeInterval) {
-        if (gamePaused) { return }
+        if (gamePaused || gameState == .GameOver) { return }
+        
+        
+        if (hero.position.x < 0 || hero.position.y < 0 || hero.position.x > 1568) {
+            heroDies(hero)
+        }
+        
+        
+        let goalPos = levelNode.convertPoint(goal.position, toNode: self)
+        let heroPos = hero.parent!.convertPoint(hero.position, toNode: self)
+        if ( heroPos.x >= goalPos.x ) {
+            print(heroPos.x >= goalPos.x)
+            let moveY = SKAction.moveToY(200, duration: 0.6)
+            let moveX = SKAction.moveToX((self.camera?.position.x)!, duration: 0.6)
+            let seq = SKAction.sequence([moveX, moveY])
+            youWonScreen.runAction(seq)
+            gameState = .GameOver
+        }
+        
+        
         
         /* Called before each frame is rendered */
         if (abs(blackSun.position.y - 320) <= 0.1) {
@@ -320,6 +468,48 @@ class GameScene: SKScene {
         else {
             blackSun.position = CGPointMake(blackSun.position.x + 1, blackSun.position.y - (320/284))
         }
+        
+        
+        
+        let ticker = currentTime - lastTime
+        if (ticker > 10) {
+            for en in enemy {
+                
+                    let fireball = SKSpriteNode(imageNamed: "blackFire")
+                    fireball.size = CGSizeMake(50, 20)
+                    fireball.physicsBody = SKPhysicsBody(texture: fireball.texture!, size: fireball.size)
+                    fireball.name = "Fireball\(fireballCount)"
+                    fireball.physicsBody?.affectedByGravity = false
+                    fireball.physicsBody?.allowsRotation = false
+                    //                var rotate = SKAction.rotateToAngle(CGFloat(M_PI/2.00), duration: 0)
+                    //                fireball.runAction(rotate)
+                    fireball.physicsBody?.categoryBitMask = 2
+                    fireball.physicsBody?.contactTestBitMask = 1
+                    fireball.physicsBody?.collisionBitMask = 0
+                    fireball.position.x = en.position.x - 50
+                    fireball.position.y = en.position.y - 10
+                    fireball.zPosition = 4
+                    en.addChild(fireball)
+                    fireball.physicsBody?.applyImpulse(CGVectorMake(-2, 0))
+
+                
+                print(enemy[0].children[fireballCount])
+//                en.shootProjectile()
+            }
+            fireballCount++
+            lastTime = currentTime
+        }
+        
+        cameraTarget = hero
+
+        /* Check we have a valid camera target to follow */
+        if let cameraTarget = cameraTarget {
+            
+            /* Set camera position to follow target horizontally, keep vertical locked */
+            camera?.position = CGPoint(x:cameraTarget.position.x, y:camera!.position.y)
+        }
+        /* Clamp camera scrolling to our visible scene area only */
+        camera?.position.x.clamp(283, 1285)
     }
     
     
@@ -336,7 +526,7 @@ class GameScene: SKScene {
         let rGrav = SKFieldNode.radialGravityField()
         rGrav.enabled = true
         rGrav.position = point
-        rGrav.strength = 0.5
+        rGrav.strength = 0.8
         rGrav.falloff = 0.01
         rGrav.region = SKRegion(size: CGSizeMake(100,100))
         addChild(rGrav)
@@ -373,8 +563,8 @@ class GameScene: SKScene {
         vField.enabled = true
         vField.position = point
         let magnitude: CGFloat = sqrt(nextVector.dx * nextVector.dx + nextVector.dy  * nextVector.dy)
-        vField.strength = 0.1 * Float(magnitude*30)
-        vField.falloff = 6
+        vField.strength = 1.0 //* Float(magnitude*3000)
+        vField.falloff = 0.01
         //vField.region = SKRegion(size: frame.size)
         addChild(vField)
         
@@ -391,11 +581,64 @@ class GameScene: SKScene {
         let rotate = SKAction.rotateToAngle(CGFloat(theta) + CGFloat(pi*0.05), duration: 0.0)
         
         addChild(velocityArrow)
-        velocityArrow.zPosition = -2
+        velocityArrow.zPosition = -1
         velocityArrow.position = point
         velocityArrow.size = CGSizeMake(50, 50)
         velocityArrow.alpha = 0.2
         velocityArrow.runAction(rotate)
         vField.region = SKRegion(radius: Float(velocityArrow.size.height))
+    }
+    
+    
+    
+    
+    func heroDies(node: SKNode) {
+        let heroDeath = SKAction.runBlock({
+            node.removeFromParent()
+        })
+        
+        
+        self.runAction(heroDeath)
+        
+        let moveUp = SKAction.moveToY(200, duration: 0.6)
+        
+        let moveToX = SKAction.moveToX((self.camera?.position.x)!, duration: 0.6)
+        
+        let seq = SKAction.sequence([moveToX, moveUp])
+        
+        gameOverScreen.runAction(seq)
+        
+        gameState = .GameOver
+        
+    }
+    
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        /* physics contact info setup */
+        
+        /* bodies in the collision */
+        
+        let contactA: SKPhysicsBody = contact.bodyA
+        let contactB: SKPhysicsBody = contact.bodyB
+        
+        let nodeA = contactA.node as! SKSpriteNode
+        let nodeB = contactB.node as! SKSpriteNode
+        
+        /* Check if any of the nodes was a fireball */
+        if (contactA.categoryBitMask == 2 || contactB.categoryBitMask == 2) {
+            
+            /* kill hero */
+            if (contactA.node!.name == "hero") {
+                heroDies(nodeA)
+                nodeB.removeFromParent()
+            }
+            if (contactB.node!.name == "hero") {
+                heroDies(nodeB)
+                nodeA.removeFromParent()
+            }
+        
+            
+        }
+        
     }
 }
